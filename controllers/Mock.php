@@ -42,8 +42,8 @@ class MockController extends Yaf_Controller_Abstract {
 
     public function createAction() {
         try {
-            $title = Comm_Context::post('title', false);
-            $content = Comm_Context::post('content', false);
+            $title = Core_Config::getRequest('title', false);
+            $content = Core_Config::getRequest('content', false);
             if (empty($title) || empty($content)) {
                 Tool_Rest::outGetFailed("title/content cannt empty");
             }
@@ -61,8 +61,8 @@ class MockController extends Yaf_Controller_Abstract {
     public function updateAction() {
         try {
             $name = $this->getRequest()->getParam('name');
-            $title = Comm_Context::post('title', false);
-            $content = Comm_Context::post('content', false);
+            $title = Core_Config::getRequest('title', false);
+            $content = Core_Config::getRequest('content', false);
             if (empty($name)) {
                 Tool_Rest::outGetFailed("name cannt empty");
             }
