@@ -9,6 +9,7 @@ class MockController extends Yaf_Controller_Abstract {
 
             Tool_Rest::outGetSucceed($mocks);
         } catch (Exception $e) {
+            Tool_Log::logger()->addError($e->getMessage());
             Tool_Rest::outGetFailed('');
         }
     }
@@ -34,6 +35,7 @@ class MockController extends Yaf_Controller_Abstract {
 
             echo $value;
         } catch (Exception $e) {
+            Tool_Log::logger()->addError($e->getMessage());
             Tool_Rest::outCreateFailed('');
         }
     }
@@ -51,6 +53,7 @@ class MockController extends Yaf_Controller_Abstract {
 
             Tool_Rest::outCreateSucceed($value);
         } catch (Exception $e) {
+            Tool_Log::logger()->addError($e->getMessage());
             Tool_Rest::outCreateFailed('');
         }
     }
@@ -73,6 +76,7 @@ class MockController extends Yaf_Controller_Abstract {
 
             Tool_Rest::outGetSucceed($value);
         } catch (Exception $e) {
+            Tool_Log::logger()->addError($e->getMessage());
             Tool_Rest::outGetFailed('');
         }
     }
