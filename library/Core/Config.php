@@ -3,7 +3,7 @@
 class Core_Config {
     static private $_configs = array();
 
-    static public function get($key) {
+    static public function get($key, $default = null) {
         $keys = explode('.', $key);
         if (count($keys) < 1) return null;
 
@@ -13,7 +13,16 @@ class Core_Config {
         }
         
         $value = self::$_configs[$name];
-        while ($key = array_shift($keys)) {
+        while (true) {
+            if (count($keys) == 0) {
+                break;
+            }
+
+            $key = array_shift($keys);
+            if (isset($value[$key]) == false) {
+                return $default;
+            }
+
             $value = $value[$key];
         }
         

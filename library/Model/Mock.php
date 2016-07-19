@@ -88,8 +88,8 @@ class Model_Mock {
 }
 
 function alleria_after($url, $after = 1000) {
-    \Tarth\Tool\Redis::setCacheServer(get_option_value($worker->config, 'resource.cache', '127.0.0.1:6379'));
-    \Tarth\Tool\Redis::setQueueServer(get_option_value($worker->config, 'resource.queue', '127.0.0.1:6379'));
+    \Tarth\Tool\Redis::setCacheServer(Core_Config::get('redis.tarth_cache', '127.0.0.1:6379'));
+    \Tarth\Tool\Redis::setQueueServer(Core_Config::get('redis.tarth_queue', '127.0.0.1:6379'));
     
     \Tarth\Tool\Task::createApiTask($url)->runAfter($after / 1000);
     return \Tarth\Tool\Task::exec();
