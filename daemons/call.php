@@ -5,8 +5,8 @@ use Tarth\Task\AbstractTask;
 use Tarth\Tool\Redis;
 
 function init($worker) {
-    Redis::setCacheServer(Core_Config::get('redis.tarth_cache', '127.0.0.1:6379'));
-    Redis::setQueueServer(Core_Config::get('redis.tarth_queue', '127.0.0.1:6379'));
+    Redis::setCacheServer(get_option_value($worker->config, 'resources.cache', '127.0.0.1:6379'));
+    Redis::setQueueServer(get_option_value($worker->config, 'resources.queue', '127.0.0.1:6379'));
 }
 
 function run($worker, $data) {
