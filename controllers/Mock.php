@@ -21,7 +21,7 @@ class MockController extends Yaf_Controller_Abstract {
             $mock = $mockModel->getMock($name);
 
             if ($mock == false) {
-                $this->failure();
+                Tool_Rest::outGetFailed('');
             }
 
             $value = \Mock\Mock::mock($mock['mock_content']);
@@ -45,7 +45,7 @@ class MockController extends Yaf_Controller_Abstract {
             $title = Comm_Context::post('title', false);
             $content = Comm_Context::post('content', false);
             if (empty($title) || empty($content)) {
-                $this->failure(0, "title/content cannt empty");
+                Tool_Rest::outGetFailed("title/content cannt empty");
             }
 
             $mockModel = new Model_Mock();
@@ -64,11 +64,11 @@ class MockController extends Yaf_Controller_Abstract {
             $title = Comm_Context::post('title', false);
             $content = Comm_Context::post('content', false);
             if (empty($name)) {
-                $this->failure(0, "name cannt empty");
+                Tool_Rest::outGetFailed("name cannt empty");
             }
 
             if (empty($title) && empty($content)) {
-                $this->failure(0, "nothing changed");
+                Tool_Rest::outGetFailed("nothing changed");
             }
 
             $mockModel = new Model_Mock();
