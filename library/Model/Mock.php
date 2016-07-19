@@ -59,7 +59,7 @@ class Model_Mock {
             $from = ($page - 1) * $count;
             $names = $this->_redis->lRange('_mocks_', $from, $count);
             $mocks = array();
-            foreach ($name as $name) {
+            foreach ($names as $name) {
                 $mock = $this->getMock($name);
                 if ($mock) {
                     $mock['name'] = $name;
