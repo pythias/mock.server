@@ -27,9 +27,9 @@ class Model_Mock {
             }
 
             return array(
-                'mock_name' => $name, 
-                'mock_title' => $title,
-                'mock_content' => $content,
+                'name' => $name, 
+                'title' => $title,
+                'content' => $content,
             );
         } catch (Exception $e) {
             return false;

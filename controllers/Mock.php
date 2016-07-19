@@ -24,7 +24,7 @@ class MockController extends Yaf_Controller_Abstract {
                 Tool_Rest::outGetFailed('');
             }
 
-            $value = \Mock\Mock::mock($mock['mock_content']);
+            $value = \Mock\Mock::mock($mock['content']);
             if (is_array($value)) {
                 if (headers_sent() == false) {
                     header('Content-type: application/json; charset=utf-8', true);
