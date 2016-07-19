@@ -43,12 +43,12 @@ class Model_Mock {
             }
 
             if ($title) {
-                return this->_redis->hSet($name, 'title', $title);
+                return $this->_redis->hSet($name, 'title', $title);
             } else if ($content) {
-                return this->_redis->hSet($name, 'content', $content);
+                return $this->_redis->hSet($name, 'content', $content);
             }
 
-            return this->_redis->hMSet($name, array('title', 'content'), array($title, $content));
+            return $this->_redis->hMSet($name, array('title', 'content'), array($title, $content));
         } catch (Exception $e) {
             return false;
         }
