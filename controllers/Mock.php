@@ -26,14 +26,11 @@ class MockController extends Yaf_Controller_Abstract {
 
             $value = \Mock\Mock::mock($mock['content']);
             if (is_array($value)) {
-                if (headers_sent() == false) {
-                    header('Content-type: application/json; charset=utf-8', true);
-                }
-
-                $value = json_encode($value);
+                Tool_Response::outJson($value);
             }
 
             echo $value;
+            exit;
         } catch (Exception $e) {
             Tool_Log::logger()->addError($e->getMessage());
             Tool_Rest::outCreateFailed('');
