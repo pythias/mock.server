@@ -13,7 +13,10 @@ class Tool_Redis {
         $connection = new Redis();
 
         try {
-            $connection->connect($server);
+            //Fix 'Redis::connect(): php_network_getaddresses: getaddrinfo failed: Name or service not known' in docker php
+            list($ip, $port) = explode(':', $server);
+            $connection->connect($ip, $port);
+            //$connection->connect($server);
             $connection->server = $server;
 
             self::$_connections[$pool] = $connection;
