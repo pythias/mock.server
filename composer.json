@@ -3,6 +3,7 @@
         "php": ">=5.3",
         "monolog/monolog": "*",
         "got/tarth": "*",
-        "pythias/mock": "*"
+        "pythias/mock": "*",
+        "ext-mbstring": "*"
     }
 }
