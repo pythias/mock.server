@@ -93,13 +93,13 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'title=mock
 ### Mock
 
 ```
-GET http://mock.weibo.com/mock/[mock_id]?x=xxx
+GET http://mock.com/mock/[mock_id]?x=xxx
 ```
 
 ### List
 
 ```
-GET http://mock.weibo.com/mock/[page]/[count]
+GET http://mock.com/mock/[page]/[count]
 ```
 
 ### Update
